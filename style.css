@@ -1,0 +1,452 @@
+/* Estilos inspirados na página da Netflix */
+
+:root {
+  --bg-color: #000; /* Fundo escuro */
+  --text-color: #fff; /* Texto claro */
+  --border-color: #fff; /* Borda clara */
+}
+
+.light {
+  --bg-color: #fff; /* Fundo claro */
+  --text-color: #000; /* Texto escuro */
+  --border-color: #ff02029f; /* Borda escura */
+}
+
+body {
+  background-color: var(--bg-color); /* Usa variável para fundo */
+  color: var(--text-color); /* Usa variável para texto */
+  font-family:
+    "Helvetica Neue", Helvetica, Arial, sans-serif; /* Define a família de fontes, priorizando Helvetica Neue */
+  margin: 0; /* Remove as margens externas do body */
+  padding: 0; /* Remove o preenchimento interno do body */
+  display: flex; /* Usa flexbox para layout */
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  align-items: center; /* Centraliza o conteúdo verticalmente */
+  height: 100vh; /* Define a altura como 100% da altura da viewport */
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease; /* Transição suave para mudança de tema */
+  position: relative; /* Para posicionar o botão */
+}
+
+main {
+  text-align: center; /* Alinha o texto ao centro */
+  max-width: 800px; /* Define a largura máxima como 800px */
+  width: 100%; /* Define a largura como 100% do container pai */
+}
+
+header {
+  margin-bottom: 50px; /* Adiciona margem inferior de 50px */
+}
+
+h1 {
+  font-size: 3rem; /* Define o tamanho da fonte como 3rem (48px) */
+  font-weight: 300; /* Define o peso da fonte como leve (300) */
+  margin: 0; /* Remove as margens do h1 */
+}
+
+.toggle-container {
+  position: absolute; /* Posicionamento absoluto */
+  top: 20px; /* 20px do topo */
+  left: 20px; /* 20px da esquerda */
+}
+
+#theme-toggle {
+  display: none; /* Esconde o input */
+}
+
+.toggle-slider {
+  position: relative;
+  width: 60px; /* Largura do slider */
+  height: 30px; /* Altura do slider */
+  background-color: #333; /* Fill escuro em dark mode */
+  border-radius: 15px; /* Bordas arredondadas */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+}
+
+.toggle-slider::before {
+  content: "🌙"; /* Lua para dark mode (padrão) */
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px; /* Largura do círculo */
+  height: 24px; /* Altura do círculo */
+  background-color: transparent; /* Sem fundo em dark mode */
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  z-index: 1; /* Coloca acima dos ícones */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+#theme-toggle:checked + .toggle-slider::before {
+  content: "☀️"; /* Sol para light mode */
+  transform: translateX(30px); /* Desliza para a direita quando checked */
+  background-color: transparent; /* Sem fundo em light mode também */
+}
+
+#theme-toggle:checked + .toggle-slider {
+  background-color: #ccc; /* Fill claro em light mode */
+}
+
+#theme-toggle:checked + .toggle-slider {
+  background-color: var(--text-color); /* Fundo invertido quando checked */
+}
+
+.profiles {
+  list-style: none; /* Remove os marcadores da lista */
+  padding: 0; /* Remove o preenchimento interno */
+  display: flex; /* Usa flexbox para layout */
+  justify-content: center; /* Centraliza os perfis horizontalmente */
+  gap: 25px; /* Define o espaço entre os perfis como 25px */
+}
+
+.profile {
+  flex: 0 0 auto; /* Impede que os perfis encolham */
+  text-align: center; /* Alinha o texto ao centro */
+  cursor: pointer; /* Muda o cursor para pointer ao passar o mouse */
+  transition: transform 0.3s ease; /* Adiciona transição suave para transformações */
+}
+
+.profile a {
+  text-decoration: none; /* Remove sublinhado do link */
+  color: inherit; /* Herda a cor do elemento pai */
+}
+
+.profile a:visited {
+  color: inherit; /* Impede a cor roxa/padrão de links visitados */
+}
+
+.profile:hover {
+  transform: scale(1.1); /* Aumenta o tamanho do elemento em 10% no hover */
+}
+
+.profile img {
+  width: 200px; /* Define a largura da imagem como 200px para melhor visualização */
+  height: 200px; /* Define a altura da imagem como 200px para melhor visualização */
+  border-radius: 50%; /* Torna a imagem circular */
+  object-fit: cover; /* Ajusta a imagem para cobrir o container sem distorcer */
+  border: 3px solid transparent; /* Adiciona borda transparente de 3px */
+  transition: border-color 0.3s ease; /* Adiciona transição suave para a cor da borda */
+}
+
+.profile:hover img {
+  border-color: var(--border-color); /* Muda a cor da borda para a variável */
+}
+
+.profile figcaption {
+  margin-top: 25px; /* Adiciona margem superior de 25px para espaço adequado */
+  font-size: 1.2rem; /* Define o tamanho da fonte como 1.2rem (19.2px) */
+  font-weight: 400; /* Define o peso da fonte como normal (400) */
+  color: var(--text-color); /* Define a cor do texto como branco/claro */
+}
+
+.manage-profiles-btn {
+  margin-top: 40px; /* Espaço superior em relação aos perfis */
+  padding: 10px 26px; /* Padding interno do botão */
+  background-color: transparent; /* Fundo transparente */
+  color: var(--text-color); /* Texto usa cor de texto */
+  border: 2px solid #999; /* Borda cinza neutro */
+  border-radius: 0; /* Sem bordas arredondadas - completamente reto */
+  font-size: 1rem; /* Tamanho da fonte */
+  font-weight: 500; /* Peso da fonte */
+  font-family: "Cairo", sans-serif; /* Usa font Cairo do Google Fonts */
+  text-transform: uppercase; /* Transforma o texto em maiúsculo */
+  cursor: pointer; /* Cursor pointer */
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    border-color 0.2s ease; /* Transição suave */
+}
+
+.manage-profiles-btn:hover {
+  transform: scale(1.05); /* Aumenta o tamanho em 5% no hover */
+  border-color: var(--text-color); /* Muda a cor da borda no hover */
+}
+
+.manage-profiles-btn:active {
+  transform: scale(0.98); /* Reduz o tamanho em 2% quando clicado */
+}
+
+.profile img {
+  width: 120px; /* Ajusta a largura da imagem */
+  height: 120px; /* Ajusta a altura da imagem */
+}
+
+/* Para desktops grandes (acima de 1024px) - mantém os estilos padrão */
+
+/* Media queries atualizadas para responsividade */
+/* RESPONSIVIDADE COMPLETA */
+
+/* Celulares pequenos (até 480px) */
+@media (max-width: 480px) {
+  body {
+    height: auto;
+    min-height: 100vh;
+    padding: 80px 20px 40px;
+    align-items: flex-start;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+
+  .toggle-container {
+    top: 10px;
+    left: 10px;
+  }
+
+  .toggle-slider {
+    width: 50px;
+    height: 25px;
+  }
+
+  .toggle-slider::before {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+
+  #theme-toggle:checked + .toggle-slider::before {
+    transform: translateX(25px);
+  }
+
+  .profiles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  .profile img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile figcaption {
+    font-size: 0.85rem;
+    margin-top: 10px;
+  }
+
+  .manage-profiles-btn {
+    margin-top: 20px;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+
+  header {
+    margin-bottom: 30px;
+  }
+
+  main {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+/* Celulares médios (481px - 640px) */
+@media (min-width: 481px) and (max-width: 640px) {
+  body {
+    height: auto;
+    min-height: 100vh;
+    padding: 80px 20px 40px;
+    align-items: flex-start;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 35px;
+  }
+
+  .profiles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 0;
+  }
+
+  .profile img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile figcaption {
+    font-size: 0.95rem;
+    margin-top: 12px;
+  }
+
+  .manage-profiles-btn {
+    margin-top: 25px;
+    padding: 9px 18px;
+    font-size: 0.85rem;
+  }
+
+  main {
+    max-width: 100%;
+  }
+}
+
+/* Celulares grandes (641px - 768px) */
+@media (min-width: 641px) and (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .profiles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .profile img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .profile figcaption {
+    font-size: 1rem;
+    margin-top: 15px;
+  }
+
+  .manage-profiles-btn {
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  main {
+    max-width: 100%;
+  }
+}
+
+/* Tablets pequenos (769px - 850px) */
+@media (min-width: 769px) and (max-width: 850px) {
+  h1 {
+    font-size: 2.3rem;
+  }
+
+  .profiles {
+    gap: 20px;
+  }
+
+  .profile img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .profile figcaption {
+    font-size: 1.05rem;
+    margin-top: 15px;
+  }
+
+  .manage-profiles-btn {
+    margin-top: 32px;
+    padding: 11px 22px;
+    font-size: 0.95rem;
+  }
+
+  main {
+    max-width: 100%;
+  }
+}
+
+/* Tablets (851px - 1024px) */
+@media (min-width: 851px) and (max-width: 1024px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .profiles {
+    gap: 25px;
+  }
+
+  .profile img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .manage-profiles-btn {
+    margin-top: 35px;
+    padding: 11px 25px;
+    font-size: 0.95rem;
+  }
+
+  main {
+    max-width: 900px;
+  }
+}
+
+/* Desktops (acima de 1025px) */
+@media (min-width: 1025px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  .profiles {
+    gap: 25px;
+  }
+
+  .profile img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .profile figcaption {
+    font-size: 1.2rem;
+    margin-top: 25px;
+  }
+
+  .manage-profiles-btn {
+    margin-top: 40px;
+    padding: 10px 26px;
+    font-size: 1rem;
+  }
+
+  main {
+    max-width: 800px;
+  }
+}
+
+/* Orientação Landscape - Celulares */
+@media (max-height: 500px) and (orientation: landscape) {
+  body {
+    height: auto;
+    min-height: auto;
+    padding: 60px 20px 20px;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+  .toggle-container {
+    top: 5px;
+    left: 10px;
+  }
+
+  .profiles {
+    gap: 10px;
+  }
+
+  .profile img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .profile figcaption {
+    font-size: 0.75rem;
+    margin-top: 5px;
+  }
+
+  .manage-profiles-btn {
+    margin-top: 10px;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+}

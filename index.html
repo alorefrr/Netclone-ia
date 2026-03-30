@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Netflix</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Nanum+Gothic&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="toggle-container">
+      <input type="checkbox" id="theme-toggle" />
+      <label for="theme-toggle" class="toggle-slider"></label>
+    </div>
+    <main>
+      <header>
+        <h1>Quem está assistindo?</h1>
+      </header>
+      <ul class="profiles">
+        <!-- Perfil 1 -->
+        <li class="profile">
+          <a href="catalogo/catalogo.html">
+            <figure>
+              <img src="/Assets/neymar.png" alt="Foto do perfil GabrielF" />
+              <figcaption class="nome-perfil">GabrielF</figcaption>
+            </figure>
+          </a>
+        </li>
+
+        <!-- Perfil 2 -->
+        <li class="profile">
+          <a href="catalogo/catalogo.html">
+            <figure>
+              <img src="/Assets/ViniciusJr.png" alt="Foto do perfil TharciaC" />
+              <figcaption class="nome-perfil">TharciaC</figcaption>
+            </figure>
+          </a>
+        </li>
+
+        <!-- Perfil 3 -->
+        <li class="profile">
+          <a href="catalogo/catalogo.html">
+            <figure>
+              <img src="/Assets/ronaldinho.png" alt="Foto do perfil Miguel" />
+              <figcaption class="nome-perfil">Miguel</figcaption>
+            </figure>
+          </a>
+        </li>
+
+        <!-- Perfil 4 -->
+        <li class="profile">
+          <a href="catalogo/catalogo.html">
+            <figure>
+              <img src="/Assets/ronaldo.png" alt="Foto do perfil Eros" />
+              <figcaption class="nome-perfil">Eros</figcaption>
+            </figure>
+          </a>
+        </li>
+      </ul>
+      <button class="manage-profiles-btn">Gerenciar perfis</button>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
