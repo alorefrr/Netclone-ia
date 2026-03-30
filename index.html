@@ -13,56 +13,52 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="toggle-container">
-      <input type="checkbox" id="theme-toggle" />
-      <label for="theme-toggle" class="toggle-slider"></label>
-    </div>
+    <header>
+      <div class="toggle-container">
+        <input type="checkbox" id="theme-toggle" />
+        <label for="theme-toggle" class="toggle-slider" aria-label="Alternar tema"></label>
+      </div>
+    </header>
     <main>
-      <header>
-        <h1>Quem está assistindo?</h1>
-      </header>
-      <ul class="profiles">
-        <!-- Perfil 1 -->
-        <li class="profile">
-          <a href="catalogo/catalogo.html">
-            <figure>
-              <img src="Assets/neymar.png" alt="Foto do perfil GabrielF" />
-              <figcaption class="nome-perfil">GabrielF</figcaption>
-            </figure>
-          </a>
-        </li>
-
-        <!-- Perfil 2 -->
-        <li class="profile">
-          <a href="catalogo/catalogo.html">
-            <figure>
-              <img src="Assets/ViniciusJr.png" alt="Foto do perfil TharciaC" />
-              <figcaption class="nome-perfil">TharciaC</figcaption>
-            </figure>
-          </a>
-        </li>
-
-        <!-- Perfil 3 -->
-        <li class="profile">
-          <a href="catalogo/catalogo.html">
-            <figure>
-              <img src="Assets/ronaldinho.png" alt="Foto do perfil Miguel" />
-              <figcaption class="nome-perfil">Miguel</figcaption>
-            </figure>
-          </a>
-        </li>
-
-        <!-- Perfil 4 -->
-        <li class="profile">
-          <a href="catalogo/catalogo.html">
-            <figure>
-              <img src="Assets/ronaldo.png" alt="Foto do perfil Eros" />
-              <figcaption class="nome-perfil">Eros</figcaption>
-            </figure>
-          </a>
-        </li>
-      </ul>
-      <button class="manage-profiles-btn">Gerenciar perfis</button>
+      <section aria-labelledby="quem-assistindo">
+        <h1 id="quem-assistindo">Quem está assistindo?</h1>
+        <ul class="profiles">
+          <!-- Perfis de usuário -->
+          <li class="profile">
+            <a href="catalogo/catalogo.html">
+              <figure>
+                <img src="Assets/neymar.png" alt="Foto do perfil GabrielF" />
+                <figcaption class="nome-perfil">GabrielF</figcaption>
+              </figure>
+            </a>
+          </li>
+          <li class="profile">
+            <a href="catalogo/catalogo.html">
+              <figure>
+                <img src="Assets/ViniciusJr.png" alt="Foto do perfil TharciaC" />
+                <figcaption class="nome-perfil">TharciaC</figcaption>
+              </figure>
+            </a>
+          </li>
+          <li class="profile">
+            <a href="catalogo/catalogo.html">
+              <figure>
+                <img src="Assets/ronaldinho.png" alt="Foto do perfil Miguel" />
+                <figcaption class="nome-perfil">Miguel</figcaption>
+              </figure>
+            </a>
+          </li>
+          <li class="profile">
+            <a href="catalogo/catalogo.html">
+              <figure>
+                <img src="Assets/ronaldo.png" alt="Foto do perfil Eros" />
+                <figcaption class="nome-perfil">Eros</figcaption>
+              </figure>
+            </a>
+          </li>
+        </ul>
+        <button class="manage-profiles-btn" aria-label="Gerenciar perfis">Gerenciar perfis</button>
+      </section>
     </main>
     <script src="script.js"></script>
   </body>
