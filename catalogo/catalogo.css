@@ -685,3 +685,71 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* Hamburger Menu */
+.hamburger {
+  display: none; /* Hide on desktop */
+  cursor: pointer;
+  z-index: 1001; /* Ensure it's above other elements */
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  background-color: white;
+  transition: 0.4s;
+}
+
+@media (max-width: 960px) {
+  /* Adjust the left container on mobile */
+  .navbar-left {
+    gap: 15px; /* Reduce gap on mobile */
+  }
+
+  /* Show the hamburger menu */
+  .hamburger {
+    display: block;
+  }
+
+  /* Reset logo margin */
+  .logo {
+    margin-right: 0;
+  }
+
+  /* Styling for the dropdown panel */
+  .nav-links {
+    display: none; /* Hide by default */
+    position: absolute;
+    top: 70px; /* Position below the navbar */
+    left: 0;
+    background-color: var(--dark-bg);
+    width: 50%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    display: flex; /* Show when active */
+  }
+
+  .nav-links li {
+    padding: 10px 0;
+  }
+
+  /* Animation for the hamburger icon to 'X' */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
