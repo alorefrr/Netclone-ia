@@ -1,49 +1,46 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+document.addEventListener("DOMContentLoaded", () => {
+  // Botão que alterna o menu (ícone hambúrguer)
+  const menuToggleButton = document.querySelector(".hamburger");
+  // Menu de navegação principal
+  const navigationMenu = document.querySelector(".nav-links");
 
-    // 1. Criar o elemento de overlay
-    const overlay = document.createElement('div');
-    overlay.style.position = 'fixed';
-    overlay.style.top = '0';
-    overlay.style.left = '0';
-    overlay.style.width = '100vw';
-    overlay.style.height = '100vh';
-    overlay.style.zIndex = '999';
-    overlay.style.display = 'none';
-    // Adiciona um fundo para capturar cliques e escurecer o conteúdo
-    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-    document.body.appendChild(overlay);
+  // Cria o overlay para escurecer o fundo e capturar cliques fora do menu
+  const menuOverlay = document.createElement("div");
+  menuOverlay.style.position = "fixed";
+  menuOverlay.style.top = "0";
+  menuOverlay.style.left = "0";
+  menuOverlay.style.width = "100vw";
+  menuOverlay.style.height = "100vh";
+  menuOverlay.style.zIndex = "999";
+  menuOverlay.style.display = "none";
+  menuOverlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+  document.body.appendChild(menuOverlay);
 
-    // Função para fechar o menu
-    const closeMenu = () => {
-        navLinks.classList.remove('active');
-        hamburger.classList.remove('active');
-        overlay.style.display = 'none';
-        // Habilita o scroll da página novamente
-        document.body.style.overflow = 'auto';
-    };
+  // Fecha o menu lateral e reabilita o scroll
+  function closeNavigationMenu() {
+    navigationMenu.classList.remove("active");
+    menuToggleButton.classList.remove("active");
+    menuOverlay.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
 
-    // Função para abrir o menu
-    const openMenu = () => {
-        navLinks.classList.add('active');
-        hamburger.classList.add('active');
-        overlay.style.display = 'block';
-        // Desabilita o scroll da página ao fundo
-        document.body.style.overflow = 'hidden';
-    };
+  // Abre o menu lateral e desabilita o scroll do fundo
+  function openNavigationMenu() {
+    navigationMenu.classList.add("active");
+    menuToggleButton.classList.add("active");
+    menuOverlay.style.display = "block";
+    document.body.style.overflow = "hidden";
+  }
 
-    // 2. O clique no hambúrguer abre/fecha o menu
-    hamburger.addEventListener('click', () => {
-        if (navLinks.classList.contains('active')) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
-    });
+  // Clique no botão hambúrguer alterna o menu
+  menuToggleButton.addEventListener("click", () => {
+    if (navigationMenu.classList.contains("active")) {
+      closeNavigationMenu();
+    } else {
+      openNavigationMenu();
+    }
+  });
 
-    // 3. O clique no overlay (fora do menu) fecha o menu
-    overlay.addEventListener('click', () => {
-        closeMenu();
-    });
+  // Clique no overlay fecha o menu
+  menuOverlay.addEventListener("click", closeNavigationMenu);
 });
