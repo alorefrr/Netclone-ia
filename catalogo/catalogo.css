@@ -614,10 +614,6 @@ a:hover {
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-
   .movie-card {
     min-width: 200px;
     width: 200px;
