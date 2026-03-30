@@ -1,3 +1,27 @@
+.icon-button {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.icon-button:hover,
+.icon-button:focus {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.icon {
+  color: #fff;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
 @media (max-width: 768px) {
   .card-details {
     position: static;
@@ -683,18 +707,29 @@ footer {
 }
 
 /* Hamburger Menu */
+
 .hamburger {
   display: none; /* Hide on desktop */
+  background: transparent;
+  border: none;
+  padding: 0;
   cursor: pointer;
   z-index: 1001; /* Ensure it's above other elements */
+  width: 40px;
+  height: 40px;
+  box-shadow: none;
+  outline: none;
+  align-items: center;
+  justify-content: center;
 }
 
 .hamburger span {
   display: block;
-  width: 25px;
+  width: 28px;
   height: 3px;
-  margin: 5px 0;
-  background-color: white;
+  margin: 6px auto;
+  background-color: #fff;
+  border-radius: 2px;
   transition: 0.4s;
 }
 
